@@ -16,6 +16,19 @@ public class CatalogoDTO {
     }
 
     /**
+     * @param id
+     * @param grupo
+     * @param nemonico
+     * @param nombre
+     */
+    public CatalogoDTO(Long id, String grupo, String nemonico, String nombre) {
+        this.id = id;
+        this.grupo = grupo;
+        this.nemonico = nemonico;
+        this.nombre = nombre;
+    }
+
+    /**
      * @see com.todo1.store.dao.general.dao.CatalogoDao#obtenerPorGrupoEstado(java.lang.String, com.todo1.enumarados.EstadoRegistro)
      * @param id
      * @param grupo
