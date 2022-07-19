@@ -11,12 +11,19 @@ import java.util.List;
 public class ProductoDTO {
     private Long id;
     private Double precio;
+
+    private String codigo;
     private Double precioVentaPublico;
     private String titulo;
     private String descripcion;
     private CatalogoDTO categoria;
     private Long stock;
+
+    private String imagen;
+
     private List<GaleriaDTO> galerias;
+
+    private EtiquetaDTO etiqueta;
 
     public ProductoDTO() {
 
@@ -24,26 +31,34 @@ public class ProductoDTO {
 
     /**
      * @see com.todo1.store.kardex.dao.ProductoDao#obtenerTodos()
+     * @see com.todo1.store.kardex.dao.ProductoDao#obtenerPorCategoria()
      * @param id
      * @param precio
      * @param precioVentaPublico
      * @param titulo
      * @param descripcion
      * @param stock
+     * @param codigoProducto
+     * @param imagenProducto
      * @param idCategoria
      * @param grupoCategoria
      * @param nemonicoCategoria
      * @param nombreCategoria
+     * @param etiqueta
+     * @param colorEtiqueta
      */
-    public ProductoDTO(Long id, Double precio, Double precioVentaPublico, String titulo, String descripcion, Long stock, Long idCategoria, String grupoCategoria,
-            String nemonicoCategoria, String nombreCategoria) {
+    public ProductoDTO(Long id, Double precio, Double precioVentaPublico, String titulo, String descripcion, Long stock, String codigoProducto, String imagenProducto, Long idCategoria, String grupoCategoria,
+                       String nemonicoCategoria, String nombreCategoria, String etiqueta, String colorEtiqueta) {
         this.id = id;
         this.precio = precio;
         this.precioVentaPublico = precioVentaPublico;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.stock = stock;
+        this.setCodigo(codigoProducto);
+        this.setImagen(imagenProducto);
         this.setCategoria(new CatalogoDTO(idCategoria, grupoCategoria, nemonicoCategoria, nombreCategoria));
+        this.setEtiqueta(new EtiquetaDTO(etiqueta, colorEtiqueta));
 
     }
 
@@ -111,4 +126,27 @@ public class ProductoDTO {
         this.titulo = titulo;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public EtiquetaDTO getEtiqueta() {
+        return etiqueta;
+    }
+
+    public void setEtiqueta(EtiquetaDTO etiqueta) {
+        this.etiqueta = etiqueta;
+    }
 }
